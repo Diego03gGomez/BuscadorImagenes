@@ -34,7 +34,16 @@
 <header>
     
     <div class="cont_header">
-        <a class="link_oculto"  v-on:click="inicio()"   href="#">Inicio</a>
+        <i  v-on:click="menu_des()"   class="fa-solid fa-bars "></i>   
+        
+        <div class="cont_menu_oculto ">
+            <a  v-on:click="inicio()"   href="#">Inicio</a>
+       <a v-on:click="mostrarfavs()"   href="#">Guardados</a>
+       <a href="">Explorar</a>
+       <a href="">Licencia</a>
+        </div>
+
+
 
 <h1 >SEARCHING IMAGES <img src="" alt=""> </h1>
 
@@ -42,7 +51,10 @@
     <ul>
 
        <a  v-on:click="inicio()"   href="#">Inicio</a>
-       <a v-on:click="mostrarfavs()"   href="#">Favoritos</a>
+       <a v-on:click="mostrarfavs()"   href="#">Guardados</a>
+       <a href="">Explorar</a>
+       <a href="">Licencia</a>
+       <a class="img_user"  href=""><img src="https://yt3.ggpht.com/a/AGF-l7-rAaULhpxilaS_PEnH-hSPazPizYUBv4PoOQ=s900-mo-c-c0xffffffff-rj-k-no" alt=""></a>
        
     </ul>
 </nav>
@@ -50,13 +62,13 @@
 
    
      
-      <a class="link_oculto"  v-on:click="mostrarfavs()"   href="#">Favoritos</a>
+    
    
 
 
-
+<!------
 <i v-on:click="mostrar_menu()"   class="fa-solid fa-bars menu"></i>
-
+-->
 </div>
 
 
@@ -81,7 +93,7 @@
         <h2>The source of internet images.</h2>
 <h2>With resources from creators around the world.</h2>
         <input v-model="valor_input" type="text" placeholder="Buscar imagen">
-      <label > <button  v-on:click=" fetchData()  "  >Buscar <i class="fa-solid fa-magnifying-glass"></i></button></label> 
+      <label > <button  v-on:click=" fetchData()  "  > <i class="fa-solid fa-magnifying-glass"></i></button></label> 
     
     </div>
 
@@ -98,13 +110,20 @@
 
 </div>
 
+<div class="titulo">
+<h1>Stock de fotos <i class="fa-solid fa-image"></i></h1>
+
+</div>
+
+
+
 <div class="contenedor_imagenes">
     
     <div    class="imagen "   v-for="item in datag" :key="item.id">
 
 <div class="cont_hover "   >
 
-    <a v-on:click="agregar($event)"  ><i class="fa-solid fa-heart corazon"></i></a>
+    <a v-on:click="agregar($event)"  ><i class="fa-solid fa-bookmark corazon"></i></a>
     <a v-on:click="mostrar_modal($event)"  ><i class="fa-sharp fa-solid fa-download descargar"></i></a>
 
 
@@ -114,7 +133,7 @@
 </div>
 
 
-    <img   :src="item.src.landscape"   alt="">
+    <img   :src="item.src.landscape"  alt="">
  
     </div>
 
@@ -126,6 +145,18 @@
 
 
 </div>
+
+<footer>
+<div class="cont_footer">
+
+<h4>@Copyright Pagina Imagedownload </h4>
+
+<a href="">Diego Gomez <i class="fa-brands fa-github"></i></a>
+
+
+</div>
+
+</footer>
 
 
     </div>
@@ -279,10 +310,16 @@ this.favoritos.push({imagen: img})
 mostrarfavs(){
 this.$refs.todo.classList.add('ocultar');
 document.querySelector(".favs").classList.remove("ocultar")
+let footer = document.querySelector("footer");
+footer.classList.add("ocultar")
+
+
 },
 inicio(){
     this.$refs.todo.classList.remove('ocultar');
 document.querySelector(".favs").classList.add("ocultar")
+let footer = document.querySelector("footer");
+footer.classList.remove("ocultar")
 },
 ocultar_modal(event){
 event.currentTarget.parentNode.parentNode.classList.remove("mostrar")
@@ -293,8 +330,9 @@ mostrar_modal(event){
 document.querySelector(".div-pantalla-completa").classList.add("mostrar")
 this.img_modal = event.currentTarget.parentNode.parentNode.querySelector("img").src;
 },
-mostrar_menu(){
-   
+menu_des(){
+   let menu = document.querySelector(".cont_menu_oculto");
+   menu.classList.toggle("trasladar")
     
 
 }
@@ -391,9 +429,31 @@ mounted () {
 <style scoped>
 
 .cont_error{
-  
-    text-align: center;
+    text-align: center;color: black;
+   
 }
+
+.cont_error h2{
+   /* padding-top: 40px;*/
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 0;
+    margin: 60px auto;
+    width: 50%;
+}
+
+
+.titulo{
+    margin:0px auto;
+    width: 85%;
+    margin-top: 50px;
+    margin-bottom: -60px;
+    color: black;
+}
+
+
 
 
 #fondo_input{
@@ -422,10 +482,10 @@ mounted () {
 .contenedor_imagenes{
   /*  background-color: brown;*/
     margin:100px auto;
-    width: 80%;
+    width: 85%;
     display: grid;
     grid-template-columns:1fr 1fr 1fr 1fr ;
-    gap: 20px;
+    gap: 5px;
 }
 
 .contenedor_imagenes div img{
@@ -468,6 +528,11 @@ padding: 9px 10px;
 width: 40%;
 }
 
+.cont_input input:focus{
+outline: none;
+}
+
+
 .cont_input button{
   cursor: pointer;
 color: white;
@@ -482,6 +547,7 @@ font-size: 16px;
 }
 .imagen{
     position: relative;
+   
 }
 
 
@@ -530,6 +596,7 @@ font-size: 16px;
 .corazon:hover{
     transition: all 0.35s;
     color: rgba(255, 0, 43, 0.795);
+    color: gold;
     font-size: 40px;
 }
 .descargar{
@@ -549,6 +616,10 @@ font-size: 16px;
 
 
 
+.cont_header nav a{
+    color: black;
+    font-size: 25px;
+}
 
 .cont_header nav a:hover{
     transition: all 0.90s;
@@ -628,10 +699,110 @@ border-radius: 15px;
 }
 
 
+.cont_footer{
+  /*  background-color: red;*/
+    margin: auto;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+
+footer{
+    background-color: black;
+}
+
+.cont_footer a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+.img_user img{
+width: 100%;
+border-radius: 10em;
+}
+
+.img_user{
+    width: 35px;
+}
+
+
+.nav1 ul{
+    font-family: 'Corinthia', cursive;
+font-family: 'Fira Sans', sans-serif;
+font-family: 'Inter', sans-serif;
+font-family: 'Lora', serif;
+font-family: 'Mada', sans-serif;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Mulish', sans-serif;
+
+
+}
+
+.nav1 ul a{
+    font-size: 20px;
+}
+
+
+.nav1 ul {
+    align-items: center;
+}
+
+
+.fa-bars {
+  display: none;
+}
+
+.cont_menu_oculto{
+    padding: 5px 0;
+    transition: all 0.50s;
+   background-color: white;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 1%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+    font-size: 20px;
+    font-family: 'Mulish', sans-serif;
+    border-radius: 10px;
+    opacity: 0;
+}
+
+.trasladar{
+    transition: all 0.50s;
+    opacity: 1;
+    width: 100%;
+}
+
+
+
+.cont_menu_oculto a{
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    padding: 10px 0;
+    border-radius: 5px;
+}
+
+.cont_menu_oculto a:hover{
+    background-color: #35eb9a;
+    color: black;
+
+}
 
 
 
 
+.cont_header{
+    position: relative;
+}
 
 
 
@@ -674,9 +845,7 @@ border-radius: 15px;
 }
 
 
-.nav1{
-    display: none;
-}
+
 
 .link_oculto{
     transition: all 0.30s;
@@ -695,12 +864,13 @@ border-radius: 15px;
 
 
 .cont_header{
-   /* background-color: red;*/
-    width: 100%;
-    justify-content: center;
+  /*  background-color: red;*/
+    width: 80%;
+    justify-content: space-around;
     gap: 30px;
-    
 }
+
+
 
 .cont_header h1{
     font-size: 20px;
@@ -713,33 +883,23 @@ border-radius: 15px;
 
 
 
-/*
-.cont_header nav{
-    border-radius: 15px;
-   background-color: white;
-   position: absolute;
-   width: 100%;
-   top: 80px;
-}
 
-.cont_header nav ul{
-    flex-direction: column;
-    align-items: center;
-}
-
-.cont_header nav ul a{
-   
-    text-align: center;
-   padding: 0 100px;
-    margin: 10px 0;
-}
-
-.cont_header{
-    position: relative;
-}*/
 
 }
 
+
+@media (max-width: 800px){
+    .nav1{
+    display: none;
+}
+
+.fa-bars {
+    font-size: 20px;
+  display: initial;
+  cursor: pointer;
+}
+
+}
 
 
 
@@ -803,6 +963,10 @@ border-radius: 15px;
 #fondo_input{
     height: 100%;
     padding-bottom: 100px;
+    
+}
+.cont_footer{
+    flex-direction: column-reverse;
 }
 
 
