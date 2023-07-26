@@ -984,6 +984,7 @@ text-align: center;
 }
 .cont_footer{
     flex-direction: column-reverse;
+    text-align: center;
 }
 
 
