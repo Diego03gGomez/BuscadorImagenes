@@ -50,7 +50,7 @@
     
 <div class="cont_titulo">
 
-    <h1>Su fotos guardadas <i class="fa-solid fa-bookmark "></i></h1>
+    <h1>Sus fotos guardadas <i class="fa-solid fa-bookmark "></i></h1>
          
 </div>
 
