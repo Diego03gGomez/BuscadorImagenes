@@ -414,6 +414,7 @@ padding-bottom: 20px;
 
 
 .descargar{
+    cursor: pointer;
     transition: all 0.35s;
     font-size: 40px;
 }
@@ -462,6 +463,7 @@ padding-bottom: 20px;
 }
 
 .cerrar{
+    cursor: pointer;
     font-size: 50px;
 }
 

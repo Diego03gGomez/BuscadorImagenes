@@ -333,9 +333,8 @@ this.img_modal = event.currentTarget.parentNode.parentNode.querySelector("img").
 menu_des(){
    let menu = document.querySelector(".cont_menu_oculto");
    menu.classList.toggle("trasladar")
-    
+},
 
-}
 
 
 
@@ -816,6 +815,10 @@ text-align: center;
 
 .img_user {
     text-align: center;
+}
+
+.btn_descargar{
+    color: white;
 }
 
 
