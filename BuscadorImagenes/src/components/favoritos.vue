@@ -3,7 +3,7 @@
       
 
 
-<div class="modal_guardado ocultar mostrar ">
+<div class="modal_guardado ocultar  ">
 
 
 <div class="header_modal ">
@@ -148,7 +148,7 @@ props: {
 
 data() {
     return {
-        img_modal_guar : "https://images.pexels.com/photos/1761279/pexels-photo-1761279.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"
+        img_modal_guar : null
       
   
     }

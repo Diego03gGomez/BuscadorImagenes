@@ -621,7 +621,7 @@ font-size: 16px;
     font-size: 25px;
 }
 
-.cont_header nav a:hover{
+.cont_header nav a:not(:last-child):hover{
     transition: all 0.90s;
     background-color: #35eb9a;
     color: black;
@@ -731,6 +731,8 @@ border-radius: 10em;
 }
 
 
+
+
 .nav1 ul{
     font-family: 'Corinthia', cursive;
 font-family: 'Fira Sans', sans-serif;
@@ -802,6 +804,18 @@ font-family: 'Mulish', sans-serif;
 
 .cont_header{
     position: relative;
+}
+
+
+.img_user:hover{
+    padding: 0;
+    transition: all 0.90s;
+    background-color: white;
+text-align: center;
+}
+
+.img_user {
+    text-align: center;
 }
 
 
