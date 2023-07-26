@@ -151,7 +151,7 @@
 
 <h4>@Copyright Pagina Imagedownload </h4>
 
-<a href="https://github.com/Diego03gGomez/BuscadorImagenes">Diego Gomez <i class="fa-brands fa-github"></i></a>
+<a target="blank"  href="https://github.com/Diego03gGomez/BuscadorImagenes">Diego Gomez <i class="fa-brands fa-github"></i></a>
 
 
 </div>
