@@ -106,7 +106,7 @@
 
 
 <div class="cont_error  ocultar  ">
-    <h2>No existen imagenes relacionada a "{{input_error }}"  </h2>
+    <h2>No existen imagenes relacionadas a "{{input_error }}"  </h2>
 
 </div>
 
