@@ -987,6 +987,10 @@ text-align: center;
     text-align: center;
 }
 
+.div-pantalla-completa{
+    padding-top: 36px;
+}
+
 
 }
 
