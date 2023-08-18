@@ -822,7 +822,9 @@ text-align: center;
 }
 
 
-
+.div-pantalla-completa{
+    padding-top: 66px;
+}
 
 
 
