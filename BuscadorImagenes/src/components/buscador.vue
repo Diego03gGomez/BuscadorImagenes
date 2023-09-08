@@ -37,10 +37,16 @@
         <i  v-on:click="menu_des()"   class="fa-solid fa-bars "></i>   
         
         <div class="cont_menu_oculto ">
-            <a  v-on:click="inicio()"   href="#">Inicio</a>
-       <a v-on:click="mostrarfavs()"   href="#">Guardados</a>
-       <a href="">Explorar</a>
-       <a href="">Licencia</a>
+
+
+    <a  class="desaparecer_letras"  v-on:click="menu_des()"  ><i class="fa-solid fa-xmark cerrar2"></i></a>
+    <a class="desaparecer_letras"    v-on:click="inicio()"   href="#">Inicio</a>
+    <a   v-on:click="mostrarfavs()"   href="#">Guardados</a>
+    <a   href="">Explorar</a>
+    <a   href="">Licencia</a>
+
+
+
         </div>
 
 
@@ -333,6 +339,10 @@ this.img_modal = event.currentTarget.parentNode.parentNode.querySelector("img").
 menu_des(){
    let menu = document.querySelector(".cont_menu_oculto");
    menu.classList.toggle("trasladar")
+let links = document.querySelector(".cont_menu_oculto").querySelector("a");
+links.classList.toggle("desaparecer_letras")
+
+
 },
 
 
@@ -758,14 +768,36 @@ font-family: 'Mulish', sans-serif;
   display: none;
 }
 
+.cerrar2{
+    font-size: 40px;
+    margin-top: 30px;
+}
+
 .cont_menu_oculto{
-    padding: 5px 0;
+  /*  padding: 5px 0;
     transition: all 0.50s;
-   background-color: white;
-    position: absolute;
+   background-color:#35eb9a;
+    position: fixed;
     top: 70px;
     left: 0;
     width: 1%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+    font-size: 20px;
+    font-family: 'Mulish', sans-serif;
+    border-radius: 10px;
+    opacity: 0;*/
+   
+    transition: all 0.50s;
+    background-color: #35eb9a;
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 1px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -774,12 +806,45 @@ font-family: 'Mulish', sans-serif;
     font-family: 'Mulish', sans-serif;
     border-radius: 10px;
     opacity: 0;
+    z-index: 990;
+
 }
 
+.desaparecer_letras{
+font-size: 20px;
+opacity: 0;
+}
+
+
+
+
+.aparecer_letras{
+    display: initial;
+}
+
+
+
 .trasladar{
-    transition: all 0.50s;
+   /* transition: all 0.50s;
     opacity: 1;
-    width: 100%;
+    width: 100%;*/
+    transition: all 0.50s;
+    background-color: #35eb9a;
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 52%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+    font-size: 20px;
+    font-family: 'Mulish', sans-serif;
+    border-radius: 10px;
+    opacity: 1;
+    z-index: 990;
+ 
 }
 
 
@@ -787,9 +852,13 @@ font-family: 'Mulish', sans-serif;
 .cont_menu_oculto a{
     text-decoration: none;
     color: black;
-    background-color: white;
+
+  /*  background-color: white;*/
     padding: 10px 0;
     border-radius: 5px;
+    font-size: 20px;
+    opacity: 1;
+
 }
 
 .cont_menu_oculto a:hover{
