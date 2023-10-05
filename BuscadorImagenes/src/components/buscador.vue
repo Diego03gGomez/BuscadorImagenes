@@ -41,9 +41,9 @@
 
     <a  class="desaparecer_letras"  v-on:click="menu_des()"  ><i class="fa-solid fa-xmark cerrar2"></i></a>
     <a class="desaparecer_letras"    v-on:click="inicio()"   href="#">Inicio</a>
-    <a   v-on:click="mostrarfavs()"   href="#">Guardados</a>
-    <a   href="">Explorar</a>
-    <a   href="">Licencia</a>
+    <a  class="desaparecer_letras"   v-on:click="mostrarfavs()"   href="#">Guardados</a>
+    <a class="desaparecer_letras"    href="">Explorar</a>
+    <a class="desaparecer_letras"    href="">Licencia</a>
 
 
 
@@ -921,7 +921,7 @@ text-align: center;
 
 
 
-@media (max-width: 1024px){
+@media (max-width: 1324px){
     .contenedor_imagenes{
         grid-template-columns: 1fr 1fr 1fr;
     }
@@ -967,6 +967,32 @@ text-align: center;
 
 .cont_input input{
     width: 63%;
+}
+
+
+
+#fondo_input{
+  height: 100vh;
+}
+
+
+.div-pantalla-completa{
+    padding-top: 48px;
+}
+
+.div_foto img{
+    height: 378px;
+
+}
+
+
+.cont_input{
+    margin: 122px auto;
+}
+
+
+#fondo_input{
+    height: 88vh;
 }
 
 

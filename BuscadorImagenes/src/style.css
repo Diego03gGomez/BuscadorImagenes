@@ -28,6 +28,7 @@ color: white;
 
 header{
   background-color: white;
+ 
 }
 
 
@@ -84,6 +85,9 @@ transition: all 0.90s;
 ::-webkit-scrollbar-corner {
   background-color: black;
 }
+
+
+
 
 
 
